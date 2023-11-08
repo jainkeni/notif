@@ -32,10 +32,7 @@ io.on("connection", (socket) => {
         senderName,
         type,
     });
-
 });
-
-
   socket.on("disconnect" , () => {
     removeUser(socket.id);
   });
