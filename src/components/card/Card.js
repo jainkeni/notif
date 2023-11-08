@@ -6,10 +6,15 @@ import Share from "../../img/share.png";
 import Info from "../../img/info.jpeg";
 import HeartFilled from "../../img/heartFilled.png"
 
-const Card = ({ post }) => {
+const Card = ({ post , socket , user}) => {
     const [liked , setLiked] = useState(false);
-    const handleNotification =()=>{
+    const handleNotification =(type)=>{
         setLiked(true);
+        socket.emit("sendNotification" , {
+          senderName : user,
+          receiverName : post.username ,
+          type,
+        })
     }
 
   return (
@@ -23,12 +28,14 @@ const Card = ({ post }) => {
       {liked ? (
          <img src={HeartFilled} className="cardIcon" />
       ) : (
-         <img src={Heart} className="cardIcon" onClick={handleNotification}/>
+         <img src={Heart} 
+         className="cardIcon" 
+         onClick={()=>handleNotification(1)}/>
       )}
        
-        <img src={Comment} className="cardIcon" />
-        <img src={Share} className="cardIcon" />
-        <img src={Info} className="cardIcon infoIcon" /> {/* Keep the class name for Info icon */}
+        <img src={Comment} className="cardIcon" onClick={()=>handleNotification(2)}/>
+        <img src={Share} className="cardIcon" onClick={()=>handleNotification(3)}/>
+        <img src={Info} className="cardIcon infoIcon" /> 
       </div>
     </div>
   );
