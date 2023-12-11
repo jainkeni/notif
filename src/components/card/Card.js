@@ -20,22 +20,20 @@ const Card = ({ post , socket , user}) => {
   return (
     <div className="card">
       <div className="info">
-        <img src={post.userImg} className="userImg" />
+      <img src={post.userImg} alt="UserImg Icon" className="userImg" />
         <span>{post.fullname}</span>
       </div>
-      <img src={post.postImage} className="postImg" />
+      <img src={post.postImg} alt="PostImage icon" className="postImg" />
       <div className="interaction"> 
       {liked ? (
-         <img src={HeartFilled} className="cardIcon" />
+         <img src={HeartFilled} alt="HeartFilled icon" className="cardIcon" />
       ) : (
-         <img src={Heart} 
-         className="cardIcon" 
-         onClick={()=>handleNotification(1)}/>
+         <img src={Heart} alt="Heart icon" className="cardIcon" onClick={()=>handleNotification(1)}/>
       )}
        
-        <img src={Comment} className="cardIcon" onClick={()=>handleNotification(2)}/>
-        <img src={Share} className="cardIcon" onClick={()=>handleNotification(3)}/>
-        <img src={Info} className="cardIcon infoIcon" /> 
+        <img src={Comment} alt="Comment icon"className="cardIcon" onClick={()=>handleNotification(2)}/>
+        <img src={Share} alt="Share icon" className="cardIcon" onClick={()=>handleNotification(3)}/>
+        <img src={Info} alt="Info icon" className="cardIcon infoIcon" /> 
       </div>
     </div>
   );
