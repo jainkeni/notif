@@ -14,5 +14,11 @@
   "dependencies": {
     "nodemon": "^3.0.1",
     "socket.io": "^4.7.2"
+  },
+  "overrides": {
+    "ws": ">=8.17.1",
+    "braces": ">=3.0.3",
+    "cookie": ">=0.7.0",
+    "brace-expansion": ">=1.1.12"
   }
 }
